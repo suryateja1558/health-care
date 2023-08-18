@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: health-care-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: health-care
+  template:
+    metadata:
+      labels:
+        app: health-care
+    spec:
+      containers:
+        - name: health-care-container
+          image: suryateja1558/health-care:1.0
+          ports:
+            - containerPort: 8082
+
