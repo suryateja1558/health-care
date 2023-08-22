@@ -8,3 +8,18 @@ spec:
     image: suryateja1558/health-care:1.0
     ports:
     - containerPort: 82
+
+
+    -----
+    apiVersion: v1
+kind: Service
+metadata:
+  name: health-care-service
+spec:
+  selector:
+    app: health-care
+  ports:
+    - protocol: TCP
+      port: 82
+      targetPort: 82
+  type: NodePort
